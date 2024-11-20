@@ -1,14 +1,8 @@
 ---
-title: "Weight of Fish"
-author: "Aylin Torres"
+title: "simpleRegress"
+author: Aylin Torres
 date: 11/12/24
-output: document:
-    number_sections: true
-    toc: true
-    toc_depth: 5
-
- 
-    
+output: html_document
 ---
 
 
@@ -112,7 +106,7 @@ summary.lm(Pikewtall)
 library(leaps)
 regsubsets.out <-
   regsubsets(Weight ~ .,
-             data = Perch,
+             data = Pike,
              nbest = 2,     #1 best model for each of predictors
              nvmax = NULL, # NULL for no limit on number of variables
              force.in = NULL, force.out = NULL,
@@ -134,7 +128,7 @@ summary.out$which[3,]
 ```
 
 ```{r}
-anova(best.model,Pikewtall)
+#anova(best.model,Pikewtall)
 ```
 
 
@@ -158,7 +152,7 @@ summary.lm(Roachwtall)
 library(leaps)
 regsubsets.out <-
   regsubsets(Weight ~ .,
-             data = Perch,
+             data = Roach,
              nbest = 2,     #1 best model for each of predictors
              nvmax = NULL, # NULL for no limit on number of variables
              force.in = NULL, force.out = NULL,
@@ -177,12 +171,12 @@ which.max(summary.out$adjr2)
 ```
 
 ```{r}
-best.model <- lm(Weight~Lenght3+Width,data=Roach)
-summary(best.model)
+#best.model <- lm(Weight~Lenght3+Width,data=Roach)
+#summary(best.model)
 ```
 
 ```{r}
-anova(best.model,Roachwtall)
+#anova(best.model,Roachwtall)
 ```
 
 ### Best Models
